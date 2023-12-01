@@ -1,40 +1,37 @@
 
-1: add ip address
+#1: add ip address
 / ip address add address=10.0.1.254/24 interface=ether1
 /ip address print
 
 
-2: add user and auth
+#2: add user and auth
 /user add name=dox group=full password=1234
 /user print
 
-
-3: DHCP Server Basics:
-
-4: Configure DHCP Server :
+#4: Configure DHCP Server :
 /ip dhcp-server add interface=ether2 address-pool=dhcp-pool
 
-5: Configure DHCP Address Pool:
+#5: Configure DHCP Address Pool:
 /ip pool add name=dhcp-pool ranges=192.168.1.10-192.168.1.
 
-6: DHCP Client
+#6: DHCP Client
 /ip dhcp-client add interface=ether1 disabled=no
 
 
-7: Verify DHCP Configuration:
+#7: Verify DHCP Configuration:
 
 /ip dhcp-server print detail
 
-8: Setting up DNS:
+#8: Setting up DNS:
 /ip dns set servers=8.8.8.8,8.8.4.4
 
 
-9: Router Identity:
+#9: Router Identity:
 /system identity set name=MyRouter
 
-10 :Create VLAN Interface:
+#10 :Create VLAN Interface:
 /interface vlan add name=vlan10 interface=ether2 vlan-id=10
 
-11: NAT Configuration:
+#11: NAT Configuration:
 /ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade
 
