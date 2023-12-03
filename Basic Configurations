@@ -1,4 +1,4 @@
-
+# Basic Configurations
 #1: add ip address
 / ip address add address=10.0.1.254/24 interface=ether1
 /ip address print
